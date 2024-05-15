@@ -131,11 +131,13 @@ async function createVideoShoe(
             inputAudioPath,
             outputVideoPath
           );
-          resolve({intermediateVideoPath,finalVideoPath: outputVideoPath});
+          resolve({videoShowFilePath,
+            inputAudioPath,
+            outputVideoPath});
         } catch (error) {
           reject({
             error: new Error(`Error merging audio and video for ${outputVideoPath}: ${error.message}`),
-            path: intermediateVideoPath // Include intermediate path for cleanup
+            // path: intermediateVideoPath // Include intermediate path for cleanup
           });
         }
       });
